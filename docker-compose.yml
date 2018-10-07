@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  app:
+    image: phoenix-docker-dev-environment:1.3.4
+    build: .
+    ports:
+      - "127.0.0.1:4000:4000"
+    volumes:
+      - ./app:/app
+    depends_on:
+      - db
+  db:
+    image: postgres:alpine
+    volumes:
+      - ./.docker_data/db:/var/lib/postgresql/data
