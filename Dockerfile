@@ -10,4 +10,8 @@ RUN mix local.hex --force \
 
 EXPOSE 4000
 
+# Migrate
+RUN mix ecto.create
+RUN mix ecto.migrate
+
 CMD ["mix", "phx.server"]
